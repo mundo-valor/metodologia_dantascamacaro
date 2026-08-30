@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = """<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -705,9 +705,9 @@
         </div>
       </a>
       <nav class="nav-links">
-        <a href="#testimonios">Autor & Traductor</a>
-        <a href="#obra">Testimonios</a>
-        <a href="#autores">Presentación</a>
+        <a href="#autores">Autor & Traductor</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#obra">Presentación</a>
         <a href="#capitulos">Estructura</a>
         <a href="#lector" class="btn btn-gold">📖 Leer Online</a>
         <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Donar</a>
@@ -746,6 +746,7 @@
         </div>
       </div>
     </section>
+
     <!-- Author and Translator Section (Alineados en la misma fila) -->
     <section class="section-block" id="autores">
       <div class="container">
@@ -753,7 +754,6 @@
           <h2>Autor & Traductor-Editor</h2>
           <p>Dos destacados referentes de la Ingeniería Legal y Valuatoria en Iberoamérica.</p>
         </div>
-
         <div class="authors-duo-grid">
           <!-- Autor: Ing. Sérgio Antonio Abunahman -->
           <div class="person-card">
@@ -768,7 +768,6 @@
               </p>
             </div>
           </div>
-
           <!-- Traductor y Editor: Ing. Miguel Camacaro Pérez -->
           <div class="person-card">
             <span class="person-badge">Traductor & Editor</span>
@@ -814,9 +813,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Presentación y Reconocimiento Institucional</h2>
-          <p>Un puente indispensable entre la Ingeniería y el Derecho procesal en las labores de experticias y valuaciones.</p>
         </div>
-
         <div class="reviews-grid">
           <div class="review-box">
             <p class="review-text">
@@ -829,7 +826,6 @@
               </div>
             </div>
           </div>
-
           <div class="review-box">
             <p class="review-text">
               «Este Curso Básico de Ingeniería Legal y de Tasaciones llenó la laguna existente con una publicación que, de forma didáctica y sistematizada, viene a estudiar con tanta claridad este fascinante ramo de la Ingeniería... La publicación de esta obra ciertamente enriquecerá a quien de ella se valdrá, abriendo nuevos horizontes de trabajo».
@@ -845,15 +841,12 @@
       </div>
     </section>
 
-    
-    </section>
-
     <!-- Structure of the Work / Table of Contents -->
     <section class="section-block" id="capitulos">
       <div class="container">
         <div class="section-head">
           <h2>Estructura de la Obra</h2>
-          <p>Haga clic en cualquiera de los 13 capítulos o en las tablas técnicas para abrir directamente el visor digital en la página exacta.</p>
+          <p>Haga clic en cualquiera de los 13 capítulos y tablas técnicas para abrir directamente el visor digital en la página exacta.</p>
         </div>
 
         <div class="fabulas-grid">
@@ -1035,7 +1028,7 @@
   <footer>
     <div class="container">
       <p><strong>Curso Básico de Ingeniería Legal y de Tasaciones</strong> — © Sérgio Antonio Abunahman & Miguel Camacaro Pérez</p>
-      <p style="margin-top:0.4rem; opacity:0.7;">Publicado por <strong>Miguel Camacaro Ediciones</strong> • Con el patrocinio institucional de <strong>SOITAVE</strong>.</p>
+      <p style="margin-top:0.4rem; opacity:0.7;">Publicado por <strong>Miguel Camacaro Ediciones</strong> </p>
     </div>
   </footer>
 
@@ -1225,3 +1218,9 @@
   </script>
 </body>
 </html>
+"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("index.html corregido con los anclajes de menú exactos.")
