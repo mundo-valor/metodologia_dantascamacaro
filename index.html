@@ -1,10 +1,10 @@
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso Básico de Ingeniería Legal y de Tasaciones | Sérgio Antonio Abunahman & Miguel Camacaro Pérez</title>
-  <meta name="description" content="Landing page oficial y lectura online del libro 'Curso Básico de Ingeniería Legal y de Tasaciones' del Ing. Sérgio Antonio Abunahman, traducido y adaptado por el Ing. Miguel Camacaro Pérez. Miguel Camacaro Ediciones.">
+  <title>Ingeniería de Tasaciones | Rubens Alves Dantas & Miguel Camacaro Pérez</title>
+  <meta name="description" content="Landing page oficial y lectura online del libro 'Ingeniería de Tasaciones: Una introducción a la metodología científica' del Dr. Rubens Alves Dantas, traducido y editado por el Ing. Miguel Camacaro Pérez. Miguel Camacaro Ediciones.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +16,15 @@ html_content = """<!DOCTYPE html>
 
   <style>
     :root {
-      --bg-dark: #090608;
-      --bg-card: #140d12;
-      --bg-surface: #1e121a;
+      --bg-dark: #070c18;
+      --bg-card: #0f172a;
       --border-card: rgba(255, 255, 255, 0.12);
-      --primary-red: #c81e28;
-      --primary-crimson: #991b1b;
-      --accent-red: #ef4444;
+      --primary-green: #15803d;
+      --accent-green: #22c55e;
       --royal-gold: #d97706;
       --accent-gold: #f59e0b;
-      --text-main: #fdf2f4;
-      --text-muted: #a89ba2;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
       --font-title: 'Cinzel', serif;
       --font-reading: 'Literata', Georgia, serif;
       --font-ui: 'Plus Jakarta Sans', sans-serif;
@@ -55,7 +53,7 @@ html_content = """<!DOCTYPE html>
 
     /* Top Navigation Bar */
     header {
-      background: rgba(9, 6, 8, 0.98);
+      background: rgba(7, 12, 24, 0.98);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-card);
       position: sticky;
@@ -162,16 +160,16 @@ html_content = """<!DOCTYPE html>
       background: linear-gradient(135deg, #d97706, #f59e0b);
     }
 
-    .btn-red {
-      background: linear-gradient(135deg, #991b1b, #c81e28);
+    .btn-green {
+      background: linear-gradient(135deg, #15803d, #16a34a);
       color: #ffffff;
-      box-shadow: 0 4px 15px rgba(200, 30, 40, 0.4);
+      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
     }
 
-    .btn-red:hover {
+    .btn-green:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(200, 30, 40, 0.6);
-      background: linear-gradient(135deg, #c81e28, #ef4444);
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6);
+      background: linear-gradient(135deg, #16a34a, #22c55e);
     }
 
     .btn-donate {
@@ -201,7 +199,7 @@ html_content = """<!DOCTYPE html>
     /* Hero Section */
     .hero {
       padding: 4rem 0 3.5rem;
-      background: radial-gradient(circle at 50% 10%, #450a0a 0%, #090608 85%);
+      background: radial-gradient(circle at 50% 10%, #064e3b 0%, #070c18 80%);
       border-bottom: 1px solid var(--border-card);
     }
 
@@ -256,12 +254,12 @@ html_content = """<!DOCTYPE html>
 
     /* Hero Cover Card */
     .book-cover-card {
-      background: linear-gradient(145deg, #1e121a, #140d12);
+      background: linear-gradient(145deg, #1e293b, #0f172a);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 16px;
       padding: 1.5rem;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.85), 0 0 30px rgba(200, 30, 40, 0.25);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(34, 197, 94, 0.2);
     }
 
     .book-cover-card img.cover-art {
@@ -269,7 +267,7 @@ html_content = """<!DOCTYPE html>
       max-width: 270px;
       height: auto;
       border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
       margin-bottom: 1.2rem;
       transition: transform 0.3s ease;
       display: inline-block;
@@ -291,7 +289,7 @@ html_content = """<!DOCTYPE html>
     }
 
     .metadata-strip strong {
-      color: #f1f5f9;
+      color: #e2e8f0;
     }
 
     /* Content Sections */
@@ -316,87 +314,6 @@ html_content = """<!DOCTYPE html>
       color: var(--text-muted);
       max-width: 750px;
       margin: 0 auto;
-    }
-
-    /* Video Section */
-    .videos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-      gap: 2rem;
-    }
-
-    .video-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .video-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-gold);
-    }
-
-    .video-responsive {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      height: 0;
-      overflow: hidden;
-    }
-
-    .video-responsive iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* Presentation & Reviews Grid */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .review-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 16px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .review-text {
-      font-family: var(--font-reading);
-      font-size: 1.02rem;
-      color: #e2e8f0;
-      font-style: italic;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .review-author .name {
-      font-weight: 700;
-      color: var(--accent-gold);
-      font-size: 0.95rem;
-    }
-
-    .review-author .role {
-      font-size: 0.8rem;
-      color: var(--text-muted);
     }
 
     /* Author & Translator Side-by-Side Grid */
@@ -479,6 +396,50 @@ html_content = """<!DOCTYPE html>
       flex-grow: 1;
     }
 
+    /* Presentation & Reviews Grid */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .review-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-text {
+      font-family: var(--font-reading);
+      font-size: 1.02rem;
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .review-author .name {
+      font-weight: 700;
+      color: var(--accent-gold);
+      font-size: 0.95rem;
+    }
+
+    .review-author .role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
     /* Chapters Grid */
     .fabulas-grid {
       display: grid;
@@ -532,14 +493,14 @@ html_content = """<!DOCTYPE html>
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      background: linear-gradient(135deg, #991b1b, #c81e28);
+      background: linear-gradient(135deg, #15803d, #16a34a);
       color: #ffffff;
       padding: 0.5rem 1rem;
       border-radius: 6px;
       font-weight: 700;
       font-size: 0.85rem;
-      border: 1px solid rgba(239, 68, 68, 0.4);
-      box-shadow: 0 2px 8px rgba(200, 30, 40, 0.3);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      box-shadow: 0 2px 8px rgba(22, 163, 74, 0.3);
       transition: all 0.2s ease;
       text-align: center;
       width: 100%;
@@ -555,7 +516,7 @@ html_content = """<!DOCTYPE html>
     /* Online Reader Viewport */
     .reader-section {
       padding: 3rem 0 5rem;
-      background: #050305;
+      background: #050811;
     }
 
     .reader-frame {
@@ -571,7 +532,7 @@ html_content = """<!DOCTYPE html>
     }
 
     .reader-toolbar {
-      background: #090608;
+      background: #070c18;
       padding: 0.75rem 1.5rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       display: flex;
@@ -635,7 +596,7 @@ html_content = """<!DOCTYPE html>
     }
 
     .reader-footer {
-      background: #090608;
+      background: #070c18;
       padding: 0.75rem 1.5rem;
       border-top: 1px solid rgba(255, 255, 255, 0.15);
       display: flex;
@@ -679,7 +640,7 @@ html_content = """<!DOCTYPE html>
     }
 
     @media (max-width: 900px) {
-      .hero-grid, .authors-duo-grid, .reviews-grid, .videos-grid {
+      .hero-grid, .authors-duo-grid, .reviews-grid {
         grid-template-columns: 1fr;
         text-align: center;
       }
@@ -697,7 +658,7 @@ html_content = """<!DOCTYPE html>
     <div class="container nav-wrap">
       <a href="#" class="brand-logo">
         <div class="logo-container">
-          <img src="LogoMCE.png" alt="Miguel Camacaro Ediciones" onerror="this.onerror=null; this.src='LogoMCE_6.png';">
+          <img src="LogoMCE.png" alt="Miguel Camacaro Ediciones">
         </div>
         <div class="brand-text">
           <span class="name">MIGUEL CAMACARO</span>
@@ -705,9 +666,8 @@ html_content = """<!DOCTYPE html>
         </div>
       </a>
       <nav class="nav-links">
+        <a href="#obra">La Obra</a>
         <a href="#autores">Autor & Traductor</a>
-        <a href="#testimonios">Testimonios</a>
-        <a href="#obra">Presentación</a>
         <a href="#capitulos">Estructura</a>
         <a href="#lector" class="btn btn-gold">📖 Leer Online</a>
         <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Donar</a>
@@ -720,89 +680,28 @@ html_content = """<!DOCTYPE html>
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="badge-editorial">Tratado de Referencia Panamericana</span>
-          <h1 class="hero-title">Curso Básico de <span>Ingeniería Legal y de Tasaciones</span></h1>
+          <span class="badge-editorial">Premio Charles B. Akerson – UPAV 2000</span>
+          <h1 class="hero-title">Ingeniería de <span>Tasaciones</span></h1>
           <p class="hero-lead">
-            La obra clásica del Prof. Ing. Sérgio Antonio Abunahman. Una guía completa y didáctica que articula la técnica de tasación con el derecho procesal, experticias judiciales, acciones renovatorias, servidumbres y valuación de activos especiales.
+            Una introducción a la metodología científica. Tratado fundamental que transformó la valuación inmobiliaria iberoamericana, consolidando la inferencia estadística, los modelos de regresión y el rigor técnico-científico.
           </p>
           <div class="hero-btns">
             <a href="#lector" class="btn btn-gold">Iniciar Lectura Online</a>
-            <a href="#testimonios" class="btn btn-red">Testimonios en Video</a>
-            <a href="#autores" class="btn btn-outline">Autor & Traductor</a>
+            <a href="#autores" class="btn btn-green">Conocer al Autor & Traductor</a>
+            <a href="#obra" class="btn btn-outline">Ver Presentación</a>
           </div>
         </div>
 
         <!-- Portada del Libro en Hero -->
         <div class="book-cover-card">
-          <img src="Abunahman.jpg" alt="Portada de Curso Básico de Ingeniería Legal y de Tasaciones" class="cover-art">
+          <img src="Imagen2.jpg" alt="Portada de Ingeniería de Tasaciones" class="cover-art">
           <div class="metadata-strip">
-            <div><strong>Autor:</strong> Sérgio Antonio Abunahman</div>
-            <div><strong>Traducción y Edición:</strong> Miguel Camacaro Pérez</div>
-            <div><strong>ISBN:</strong> 980-12-1079-6</div>
-            <div><strong>Depósito Legal:</strong> Nº If0512005620195</div>
+            <div><strong>Autor:</strong> Dr. Rubens Alves Dantas</div>
+            <div><strong>Traducción y Edición:</strong> Ing. Miguel Camacaro Pérez</div>
+            <div><strong>ISBN:</strong> 980-303-644-0</div>
+            <div><strong>Depósito Legal:</strong> lf0512002620956</div>
             <div><strong>Editorial:</strong> Miguel Camacaro Ediciones</div>
-            <div><strong>Edición:</strong> 1ª Edición en Castellano</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Author and Translator Section (Alineados en la misma fila) -->
-    <section class="section-block" id="autores">
-      <div class="container">
-        <div class="section-head">
-          <h2>Autor & Traductor-Editor</h2>
-          <p>Dos destacados referentes de la Ingeniería Legal y Valuatoria en Iberoamérica.</p>
-        </div>
-        <div class="authors-duo-grid">
-          <!-- Autor: Ing. Sérgio Antonio Abunahman -->
-          <div class="person-card">
-            <span class="person-badge">Autor Original</span>
-            <div class="person-photo-frame">
-              <img src="S. Abunahman.jpg" alt="Ing. Sérgio Antonio Abunahman">
-            </div>
-            <div class="person-info">
-              <h3>ING. SÉRGIO ANTONIO ABUNAHMAN</h3>
-              <p class="person-bio">
-                Ingeniero industrial mecánico (UFF, 1966) y pionero en la docencia universitaria de las ciencias exactas e ingeniería legal en Brasil (UFF, UERJ, PUC-Rio). Creador de las cátedras y programas de extensión de Fundamentos Matemáticos Aplicados a la Ingeniería de Tasaciones y primer especialista brasileño en impartir esta disciplina en Europa (Lisboa, 1990). Ejerció una destacada labor gremial como director y vicepresidente del Instituto de Ingeniería Legal de Río de Janeiro y director del CREA-RJ en tres mandatos, complementada con una extensa actividad formativa nacional e internacional.
-              </p>
-            </div>
-          </div>
-          <!-- Traductor y Editor: Ing. Miguel Camacaro Pérez -->
-          <div class="person-card">
-            <span class="person-badge">Traductor & Editor</span>
-            <div class="person-photo-frame">
-              <img src="Informal 3.png" alt="Ing. Miguel Camacaro Pérez" onerror="this.onerror=null; this.src='Informal 3_6.png';">
-            </div>
-            <div class="person-info">
-              <h3>ING. MIGUEL CAMACARO PÉREZ</h3>
-              <p class="person-bio">
-                Ingeniero Civil por la Universidad de Los Andes (Venezuela), especialización en Valuación Inmobiliaria, Máster en Ciencias en Gerencia de la Construcción (UCLA - Univ. of Florida). Profesor universitario de estadística y econometría. Ex-presidente de SOITAVE Lara y director de <em>Miguel Camacaro Ediciones</em>. Referencia internacional en la integración de Ciencia de la Valuación, Ciencia de Datos e Inteligencia Artificial Generativa.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIOS DEL AUTOR DEL LIBRO (Sección de Videos antes de Presentación) -->
-    <section class="section-block" id="testimonios" style="background-color: #0b070a;">
-      <div class="container">
-        <div class="section-head">
-          <h2>TESTIMONIOS DEL AUTOR DEL LIBRO</h2>
-        </div>
-
-        <div class="videos-grid">
-          <div class="video-card">
-            <div class="video-responsive">
-              <iframe src="https://www.youtube-nocookie.com/embed/o6tjO4qFMng" title="Testimonio del Autor - Parte 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-responsive">
-              <iframe src="https://www.youtube-nocookie.com/embed/AattQ8StTHs" title="Testimonio del Autor - Parte 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+            <div><strong>Edición:</strong> 2ª Edición en Castellano</div>
           </div>
         </div>
       </div>
@@ -813,28 +712,71 @@ html_content = """<!DOCTYPE html>
       <div class="container">
         <div class="section-head">
           <h2>Presentación y Reconocimiento Institucional</h2>
+          <p>Un texto que marca un hito en la divulgación de las técnicas estadísticas e inferenciales aplicadas a la tasación de inmuebles.</p>
         </div>
+
         <div class="reviews-grid">
           <div class="review-box">
             <p class="review-text">
-              «De la mano del Ing. Miguel Camacaro Pérez nuevamente nos llega una producción literaria de investigadores brasileños en el campo de la Ingeniería de Tasación... que con toda certeza va a llenar los espacios bibliográficos para beneplácito de los profesionales de la ingeniería y de la arquitectura, en especial, para los que actúan como auxiliares de justicia en los tribunales».
+              «Para la Sociedad de Ingeniería de Tasación de Venezuela - SOITAVE es motivo de especial orgullo patrocinar este libro... La publicación de textos como este, traducido al castellano por un apreciado miembro de nuestra Sociedad y presidente del Capítulo Lara, el Ing. Miguel Camacaro Pérez, cumple con uno de los objetivos de SOITAVE: la divulgación de las técnicas estadísticas aplicadas a la tasación».
             </p>
             <div class="review-author">
               <div>
-                <div class="name">Arq. María Emilia Pereira Colls</div>
+                <div class="name">Ing. Bernardo Pulido Azpúrua</div>
                 <div class="role">Presidente de SOITAVE (Sociedad de Ingeniería de Tasación de Venezuela)</div>
               </div>
             </div>
           </div>
+
           <div class="review-box">
             <p class="review-text">
-              «Este Curso Básico de Ingeniería Legal y de Tasaciones llenó la laguna existente con una publicación que, de forma didáctica y sistematizada, viene a estudiar con tanta claridad este fascinante ramo de la Ingeniería... La publicación de esta obra ciertamente enriquecerá a quien de ella se valdrá, abriendo nuevos horizontes de trabajo».
+              «La Ingeniería de Tasaciones tuvo un avance significativo principalmente por la introducción de la Metodología Científica como soporte a los métodos técnicos... Este libro pretende dar una visión general sobre los métodos utilizados y las nociones básicas para la adecuada utilización del Método Comparativo a partir de la Investigación Científica».
             </p>
             <div class="review-author">
               <div>
-                <div class="name">Ing. Alberto Lélio Moreira</div>
-                <div class="role">Fundador y Ex-Presidente del Instituto de Ingeniería Legal de Río de Janeiro</div>
+                <div class="name">Dr. Rubens Alves Dantas</div>
+                <div class="role">Profesor Titular UFPE • Autor</div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Author and Translator Section -->
+    <section class="section-block" id="autores">
+      <div class="container">
+        <div class="section-head">
+          <h2>Autor & Traductor-Editor</h2>
+          <p>Dos destacados referentes de la Ingeniería de Tasaciones en Iberoamérica unidos para llevar esta obra trascendental al idioma castellano.</p>
+        </div>
+
+        <div class="authors-duo-grid">
+          <!-- Autor: Dr. Rubens Alves Dantas -->
+          <div class="person-card">
+            <span class="person-badge">Autor Original</span>
+            <div class="person-photo-frame">
+              <img src="Dantas.jpg" alt="Dr. Rubens Alves Dantas">
+            </div>
+            <div class="person-info">
+              <h3>DR. RUBENS ALVES DANTAS</h3>
+              <p class="person-bio">
+                Ingeniero Civil, Máster en Ingeniería de Producción y Doctor en Ciencias por la Universidad Federal de Pernambuco (UFPE - Brasil). Reconocido profesor universitario de Ingeniería de Tasaciones desde 1981 con destacada trayectoria en el Banco Real, Caixa Econômica Federal y el BNH. Galardonado con el prestigioso <em>Premio Charles B. Akerson</em> otorgado por la UPAV en el año 2000 por sus invaluables aportes a la metodología científica.
+              </p>
+            </div>
+          </div>
+
+          <!-- Traductor y Editor: Ing. Miguel Camacaro Pérez -->
+          <div class="person-card">
+            <span class="person-badge">Traductor & Editor</span>
+            <div class="person-photo-frame">
+              <img src="Informal 3.png" alt="Ing. Miguel Camacaro Pérez">
+            </div>
+            <div class="person-info">
+              <h3>ING. MIGUEL CAMACARO PÉREZ</h3>
+              <p class="person-bio">
+                Ingeniero Civil - Tasador (Universidad de Los Andes) y M.Sc. en Gerencia de Construcción (UCLA – Univ. of Florida). Especialista en Valuación de Activos con más de 40 años de trayectoria profesional y docente universitario de estadística y econometría. Ex-Presidente de SOITAVE Capítulo Lara y director de <em>Miguel Camacaro Ediciones</em>, promoviendo la investigación rigurosa y la inferencia estadística en toda América Latina.
+              </p>
             </div>
           </div>
         </div>
@@ -846,134 +788,107 @@ html_content = """<!DOCTYPE html>
       <div class="container">
         <div class="section-head">
           <h2>Estructura de la Obra</h2>
-          <p>Haga clic en cualquiera de los 13 capítulos y tablas técnicas para abrir directamente el visor digital en la página exacta.</p>
+          <p>Explora los 10 capítulos del tratado haciendo clic para abrir de inmediato el lector interactivo en las páginas correspondientes.</p>
         </div>
 
         <div class="fabulas-grid">
-          <div class="fabula-card" onclick="goToPdfPage(11)">
+          <div class="fabula-card" onclick="goToPdfPage(14)">
             <div>
-              <div class="f-num">CAPÍTULO 1 • PÁG. 11 (PDF: 11)</div>
-              <h4>Tasaciones: Conceptos Generales</h4>
-              <p>Investigación y registro de datos, factores de homogeneización, t de Student, Criterio de Chauvenet, tratamiento inferencial y ejemplo práctico de informe.</p>
+              <div class="f-num">CAPÍTULO 1 • PÁG. 1 (PDF: 14)</div>
+              <h4>La Ingeniería de Tasaciones</h4>
+              <p>Conceptos fundamentales de valor, mercado inmobiliario, ley de oferta y demanda, competencia perfecta vs. imperfecta, y diagnóstico de estructura y conducta de mercado.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <div class="fabula-card" onclick="goToPdfPage(49)">
+          <div class="fabula-card" onclick="goToPdfPage(29)">
             <div>
-              <div class="f-num">CAPÍTULO 2 • PÁG. 49 (PDF: 49)</div>
-              <h4>Tasación de Construcciones</h4>
-              <p>Depreciación física, Tablas de Ross-Heidecke y G.B. Dei Vegni-Neri, distribución porcentual de costos de servicios y Tabla de L. Caricchio.</p>
+              <div class="f-num">CAPÍTULO 2 • PÁG. 17 (PDF: 29)</div>
+              <h4>Metodología Básica Aplicable</h4>
+              <p>Método comparativo de mercado, costo de reproducción y depreciación física, método de la renta, método involutivo dinámico, método residual y niveles de rigor normativos.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
           <div class="fabula-card" onclick="goToPdfPage(61)">
             <div>
-              <div class="f-num">CAPÍTULO 3 • PÁG. 61 (PDF: 61)</div>
-              <h4>Tasación de Terrenos Urbanos</h4>
-              <p>Métodos comparativo y residual, fórmulas matemáticas clásicas, factores de frente y profundidad, y corrección por mal aprovechamiento (Fórmula de Guerrero).</p>
+              <div class="f-num">CAPÍTULO 3 • PÁG. 49 (PDF: 61)</div>
+              <h4>Metodología Científica</h4>
+              <p>Preparación de la investigación de mercado, selección de variables influyentes, trabajo de campo, precisión muestral, análisis exploratorio y modelaje por computador.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <div class="fabula-card" onclick="goToPdfPage(85)">
+          <div class="fabula-card" onclick="goToPdfPage(84)">
             <div>
-              <div class="f-num">CAPÍTULO 4 • PÁG. 85 (PDF: 85)</div>
-              <h4>Tasación de Inmuebles Comerciales</h4>
-              <p>Arbitraje de alquileres, método de la rentabilidad, acciones renovatorias y ejemplos prácticos completos de dictámenes periciales.</p>
+              <div class="f-num">CAPÍTULO 4 • PÁG. 73 (PDF: 84)</div>
+              <h4>Inferencia Estadística Aplicada</h4>
+              <p>Distribuciones de probabilidad (Normal, t-Student, Snedecor, Lognormal), estimadores de tendencia central y dispersión, e intervalos de confianza para avalúos.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <div class="fabula-card" onclick="goToPdfPage(115)">
+          <div class="fabula-card" onclick="goToPdfPage(111)">
             <div>
-              <div class="f-num">CAPÍTULO 5 • PÁG. 115 (PDF: 115)</div>
-              <h4>Tasaciones Especiales</h4>
-              <p>Cines, teatros, hoteles, moteles y estaciones de servicio por el método de la renta. Modelos de Francisco Alves Gomes Jr., Celso Guimarães y Sérgio Abunahman.</p>
+              <div class="f-num">CAPÍTULO 5 • PÁG. 101 (PDF: 111)</div>
+              <h4>Regresión Lineal Simple</h4>
+              <p>Linealización de ecuaciones, estimación de parámetros por mínimos cuadrados, comprobación de supuestos básicos, detección de outliers y pruebas de significancia.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <div class="fabula-card" onclick="goToPdfPage(144)">
+          <div class="fabula-card" onclick="goToPdfPage(141)">
             <div>
-              <div class="f-num">CAPÍTULO 6 • PÁG. 144 (PDF: 144)</div>
-              <h4>Acciones Revisionales en Residenciales</h4>
-              <p>El Modelo Mandelblatt aplicado a viviendas y apartamentos, tasación de locales en galerías comerciales y jurisprudencia comparada.</p>
-            </div>
-            <div class="f-btn">📖 Leer capítulo ➔</div>
-          </div>
-
-          <div class="fabula-card" onclick="goToPdfPage(158)">
-            <div>
-              <div class="f-num">CAPÍTULO 7 • PÁG. 158 (PDF: 158)</div>
-              <h4>Locales en Shopping Centers</h4>
-              <p>Determinación del valor rental, la figura de la Res Sperata, cuantificación del Fondo de Comercio y análisis de contratos de participación comercial.</p>
+              <div class="f-num">CAPÍTULO 6 • PÁG. 131 (PDF: 141)</div>
+              <h4>Regresión Lineal Múltiple</h4>
+              <p>Modelo lineal general, transformaciones de potencia (Box-Cox, Tukey), significancia global e individual, y aplicación práctica con datos reales (Caso Brasilia).</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
           <div class="fabula-card" onclick="goToPdfPage(171)">
             <div>
-              <div class="f-num">CAPÍTULO 8 • PÁG. 171 (PDF: 171)</div>
-              <h4>Expropiaciones y Servidumbres de Paso</h4>
-              <p>Afectaciones de utilidad pública, método involutivo simplificado, indemnización del Fondo de Comercio y casuística judicial.</p>
+              <div class="f-num">CAPÍTULO 7 • PÁG. 161 (PDF: 171)</div>
+              <h4>Modelos Especiales</h4>
+              <p>Inclusión de variables dicotómicas y cualitativas (Variables Dummy), análisis de residuos y casos prácticos en locales comerciales y parcelas urbanas.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <div class="fabula-card" onclick="goToPdfPage(212)">
+          <div class="fabula-card" onclick="goToPdfPage(189)">
             <div>
-              <div class="f-num">CAPÍTULO 9 • PÁG. 212 (PDF: 212)</div>
-              <h4>Tasación de Inmuebles Rurales</h4>
-              <p>Metodología valuatoria para predios rústicos, tasación de bosques cultivados de eucalipto, plantaciones de cítricos y ejemplos aplicados.</p>
+              <div class="f-num">CAPÍTULO 8 • PÁG. 179 (PDF: 189)</div>
+              <h4>Modelos Lineales Generalizados (GLIM)</h4>
+              <p>Componentes aleatorio y sistemático, función de enlace, análisis de deviance y aplicación práctica computacional para estructuras de datos complejas.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <div class="fabula-card" onclick="goToPdfPage(224)">
+          <div class="fabula-card" onclick="goToPdfPage(217)">
             <div>
-              <div class="f-num">CAPÍTULO 10 • PÁG. 224 (PDF: 224)</div>
-              <h4>Tasación de Máquinas y Equipos</h4>
-              <p>Método lineal, método de Cole (suma de dígitos), método del porcentaje constante y fondos de amortización industrial.</p>
+              <div class="f-num">CAPÍTULO 9 • PÁG. 207 (PDF: 217)</div>
+              <h4>Tasación de Terrenos Urbanizables</h4>
+              <p>Desarrollo matemático del método involutivo bajo óptica de análisis de inversiones, considerando ritmos de ventas uniformes y aleatorios con simulación.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <div class="fabula-card" onclick="goToPdfPage(242)">
+          <div class="fabula-card" onclick="goToPdfPage(228)">
             <div>
-              <div class="f-num">CAPÍTULO 11 • PÁG. 242 (PDF: 242)</div>
-              <h4>Tasación de Yacimientos Minerales</h4>
-              <p>Valuación económica de reservas mineras, aplicación de la Fórmula de Hoskold y formulación de ejemplos prácticos.</p>
+              <div class="f-num">CAPÍTULO 10 • PÁG. 231 (PDF: 228)</div>
+              <h4>Presentación del Informe Técnico</h4>
+              <p>Estructuración formal del dictamen pericial de acuerdo con la norma NB-502/89, caracterización física, diagnóstico de mercado y fundamentación del valor.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <div class="fabula-card" onclick="goToPdfPage(248)">
+          <div class="fabula-card" onclick="goToPdfPage(234)">
             <div>
-              <div class="f-num">CAPÍTULO 12 • PÁG. 248 (PDF: 248)</div>
-              <h4>Experticias en Siniestros y Vicios Constructivos</h4>
-              <p>Casos reales de ingeniería forense: Incendio en el Teatro del Hotel Nacional de Río y derrumbe del Edificio Saint-Marie en Niterói.</p>
+              <div class="f-num">APÉNDICES • PÁG. 237 (PDF: 234)</div>
+              <h4>Tablas Técnicas & Código Fuente</h4>
+              <p>Tablas estadísticas completas, Tablas de Depreciación Ross-Heidecke y programa computacional en lenguaje BASIC para la tasación de loteamientos urbanizables.</p>
             </div>
-            <div class="f-btn">📖 Leer capítulo ➔</div>
-          </div>
-
-          <div class="fabula-card" onclick="goToPdfPage(292)">
-            <div>
-              <div class="f-num">CAPÍTULO 13 • PÁG. 293 (PDF: 292)</div>
-              <h4>La Experticia Judicial en el Proceso Civil</h4>
-              <p>Historia e importancia del peritaje, deberes del Perito del Juicio y de los Asistentes Técnicos de las partes en los tribunales.</p>
-            </div>
-            <div class="f-btn">📖 Leer capítulo ➔</div>
-          </div>
-
-          <div class="fabula-card" onclick="goToPdfPage(303)">
-            <div>
-              <div class="f-num">TABLAS TÉCNICAS • PÁG. 303 (PDF: 303)</div>
-              <h4>Compendio de Tablas Técnicas</h4>
-              <p>Tablas completas de Ross-Heidecke, Dei Vegni-Neri, Suma de Años, Ventaja de la Cosa Hecha, t de Student y Criterio de Chauvenet.</p>
-            </div>
-            <div class="f-btn">📖 Consultar tablas ➔</div>
+            <div class="f-btn">📖 Leer anexos ➔</div>
           </div>
         </div>
       </div>
@@ -986,13 +901,13 @@ html_content = """<!DOCTYPE html>
           <!-- Loader -->
           <div class="reader-loader" id="loader">
             <div class="spinner"></div>
-            <p style="color:var(--accent-gold); font-family:var(--font-title); font-size:1.1rem;" id="loader-status">Cargando tratado digital...</p>
+            <p style="color:var(--accent-gold); font-family:var(--font-title); font-size:1.1rem;">Cargando tratado digital...</p>
           </div>
 
           <!-- Toolbar -->
           <div class="reader-toolbar">
             <div style="font-weight:700; color:#fff; font-size:0.95rem;">
-              📖 <span id="doc-title">Curso Básico de Ingeniería Legal y de Tasaciones — Sérgio Antonio Abunahman</span>
+              📖 <span id="doc-title">Ingeniería de Tasaciones — Rubens Alves Dantas</span>
             </div>
             <div class="reader-controls-group">
               <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="toggleViewMode()" id="view-mode-btn">📄 Página Simple</button>
@@ -1027,8 +942,8 @@ html_content = """<!DOCTYPE html>
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p><strong>Curso Básico de Ingeniería Legal y de Tasaciones</strong> — © Sérgio Antonio Abunahman & Miguel Camacaro Pérez</p>
-      <p style="margin-top:0.4rem; opacity:0.7;">Publicado por <strong>Miguel Camacaro Ediciones</strong> </p>
+      <p><strong>Ingeniería de Tasaciones: Una introducción a la metodología científica</strong> — © Rubens Alves Dantas & Miguel Camacaro Pérez</p>
+      <p style="margin-top:0.4rem; opacity:0.7;">Publicado por <strong>Miguel Camacaro Ediciones</strong> • Con el patrocinio institucional de <strong>SOITAVE</strong>.</p>
     </div>
   </footer>
 
@@ -1036,11 +951,7 @@ html_content = """<!DOCTYPE html>
     // Configuración de PDF.js
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-    // Lista de candidatos de nombres de archivos PDF
-    const pdfCandidates = [
-      'CompletoAbunahman.pdf',
-      'Abunahman.pdf'
-    ];
+    const pdfUrl = 'R.Dantas.pdf';
 
     let pdfDoc = null;
     let currentLeftPage = 1;
@@ -1048,37 +959,22 @@ html_content = """<!DOCTYPE html>
     let isSinglePageMode = false;
     let isRendering = false;
 
-    async function initPdfReader() {
-      const loaderStatus = document.getElementById('loader-status');
-      
-      for (let i = 0; i < pdfCandidates.length; i++) {
-        const fileUrl = pdfCandidates[i];
-        try {
-          loaderStatus.innerText = `Buscando documento (${fileUrl})...`;
-          const loadedDoc = await pdfjsLib.getDocument({ url: fileUrl }).promise;
-          pdfDoc = loadedDoc;
-          
-          // Ocultar Loader
-          const loader = document.getElementById('loader');
-          loader.style.opacity = '0';
-          setTimeout(() => loader.style.display = 'none', 300);
-          
-          renderSpread(currentLeftPage);
-          return;
-        } catch (e) {
-          console.warn(`No se encontró el archivo: ${fileUrl}`);
-        }
-      }
-
+    // Inicialización del visor con el archivo R.Dantas.pdf
+    pdfjsLib.getDocument({ url: pdfUrl }).promise.then(pdf => {
+      pdfDoc = pdf;
+      const loader = document.getElementById('loader');
+      loader.style.opacity = '0';
+      setTimeout(() => loader.style.display = 'none', 300);
+      renderSpread(currentLeftPage);
+    }).catch(err => {
+      console.error("Error cargando PDF:", err);
       document.getElementById('loader').innerHTML = `
-        <p style="color:#ef4444; font-weight:700; font-size:1.15rem;">Archivo PDF no detectado en el repositorio</p>
-        <p style="color:#94a3b8; font-size:0.9rem; margin-top:0.6rem; max-width:550px;">
-          Por favor suba el archivo del libro a la raíz de su repositorio de GitHub con el nombre exacto <strong>CompletoAbunahman.pdf</strong>.
-        </p>
+        <p style="color:#ef4444; font-weight:700; font-size:1.15rem;">No se pudo cargar el archivo PDF.</p>
+        <p style="color:#94a3b8; font-size:0.9rem; margin-top:0.5rem;">Verifique que <strong>R.Dantas.pdf</strong> esté en la raíz de su repositorio.</p>
       `;
-    }
+    });
 
-    // Renderizado de página individual con soporte HD Canvas
+    // Renderizado de página individual
     function renderPage(pageNum, canvasId) {
       return new Promise((resolve) => {
         const canvas = document.getElementById(canvasId);
@@ -1113,7 +1009,7 @@ html_content = """<!DOCTYPE html>
       });
     }
 
-    // Renderizado principal (Página Doble o Simple)
+    // Renderizado principal
     function renderSpread(leftPage) {
       if (!pdfDoc || isRendering) return;
       isRendering = true;
@@ -1212,15 +1108,6 @@ html_content = """<!DOCTYPE html>
     window.addEventListener('resize', () => {
       renderSpread(currentLeftPage);
     });
-
-    // Iniciar el lector
-    initPdfReader();
   </script>
 </body>
 </html>
-"""
-
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print("index.html corregido con los anclajes de menú exactos.")
