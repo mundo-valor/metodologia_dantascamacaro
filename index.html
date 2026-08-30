@@ -252,7 +252,7 @@
       flex-wrap: wrap;
     }
 
-    /* Hero Cover Card */
+    /* Hero Cover Card (PORTADA DEL LIBRO) */
     .book-cover-card {
       background: linear-gradient(145deg, #1e293b, #0f172a);
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -270,6 +270,7 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.6);
       margin-bottom: 1.2rem;
       transition: transform 0.3s ease;
+      display: inline-block;
     }
 
     .book-cover-card img.cover-art:hover {
@@ -315,7 +316,7 @@
       margin: 0 auto;
     }
 
-    /* Author & Translator Side-by-Side Grid */
+    /* Author & Translator Side-by-Side Grid (Same Horizontal Line) */
     .authors-duo-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -406,7 +407,7 @@
       flex-grow: 1;
     }
 
-    /* Presentation & Sponsorship Reviews Grid */
+    /* Presentation & Reviews Grid */
     .reviews-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -450,7 +451,7 @@
       color: var(--text-muted);
     }
 
-    /* Chapters / Grid */
+    /* Chapters Grid */
     .fabulas-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -669,7 +670,7 @@
           <img 
             src="LogoMCE.png" 
             alt="Miguel Camacaro Ediciones" 
-            onerror="this.onerror=null; this.src='LogoMCE_6.png';">
+            onerror="this.onerror=null; this.src='LogoMCE_2.png';">
         </div>
         <div class="brand-text">
           <span class="name">MIGUEL CAMACARO</span>
@@ -703,8 +704,13 @@
           </div>
         </div>
 
+        <!-- Book Cover in Hero -->
         <div class="book-cover-card">
-          <img src="Dantas.jpg" alt="Portada de Ingeniería de Tasaciones - Rubens Alves Dantas" class="cover-art" onerror="this.onerror=null; this.src='Dantas_2.jpg';">
+          <img 
+            src="Imagen2.jpg" 
+            alt="Portada de Ingeniería de Tasaciones - Rubens Alves Dantas" 
+            class="cover-art" 
+            onerror="this.onerror=null; this.src='Dantas.jpg';">
           <div class="metadata-strip">
             <div><strong>Autor:</strong> Dr. Rubens Alves Dantas</div>
             <div><strong>Traducción y Edición:</strong> Ing. Miguel Camacaro Pérez</div>
@@ -753,7 +759,7 @@
       </div>
     </section>
 
-    <!-- Author and Translator Section (SIDE-BY-SIDE / SAME LINE) -->
+    <!-- Author and Translator Section (SIDE-BY-SIDE / SAME HORIZONTAL LINE) -->
     <section class="section-block" id="autores">
       <div class="container">
         <div class="section-head">
@@ -767,9 +773,9 @@
             <span class="person-badge">Autor Original</span>
             <div class="person-photo-frame">
               <img 
-                src="Dantas_2.jpg" 
+                src="Dantas_3.jpg" 
                 alt="Dr. Rubens Alves Dantas"
-                onerror="this.onerror=null; this.src='Dantas.jpg';">
+                onerror="this.onerror=null; this.src='Dantas_2.jpg';">
             </div>
             <div class="person-info">
               <h3>DR. RUBENS ALVES DANTAS</h3>
@@ -787,7 +793,7 @@
               <img 
                 src="Informal 3.png" 
                 alt="Ing. Miguel Camacaro Pérez"
-                onerror="this.onerror=null; this.src='Informal 3_4.png';">
+                onerror="this.onerror=null; this.src='Informal 3_2.png';">
             </div>
             <div class="person-info">
               <h3>ING. MIGUEL CAMACARO PÉREZ</h3>
@@ -810,7 +816,7 @@
         </div>
 
         <div class="fabulas-grid">
-          <!-- Cap 1: La Ingeniería de Tasaciones (Pág 17 del PDF aprox) -->
+          <!-- Cap 1: La Ingeniería de Tasaciones -->
           <div class="fabula-card" onclick="goToPdfPage(17)">
             <div>
               <div class="f-num">CAPÍTULO 1 • PÁG. 1 (PDF: 17)</div>
@@ -820,7 +826,7 @@
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 2: Metodología Básica Aplicable (Pág 11 del PDF en numeración de índice) -->
+          <!-- Cap 2: Metodología Básica Aplicable -->
           <div class="fabula-card" onclick="goToPdfPage(11)">
             <div>
               <div class="f-num">CAPÍTULO 2 • PÁG. 17</div>
@@ -830,7 +836,7 @@
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 3: Metodología Científica (Pág 12 del PDF) -->
+          <!-- Cap 3: Metodología Científica -->
           <div class="fabula-card" onclick="goToPdfPage(12)">
             <div>
               <div class="f-num">CAPÍTULO 3 • PÁG. 49</div>
@@ -980,8 +986,8 @@
     // PDF.js Configuration
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-    // Se admiten los nombres posibles del archivo PDF cargado en GitHub
-    const pdfCandidates = ['DantasISSUU_2.pdf', 'DantasISSUU.pdf', 'Dantas.pdf'];
+    // Lista exhaustiva de nombres de archivo PDF compatibles
+    const pdfCandidates = ['R.Dantas.pdf', 'DantasISSUU_3.pdf', 'DantasISSUU_2.pdf', 'DantasISSUU.pdf', 'Dantas.pdf'];
     let currentCandidateIndex = 0;
 
     let pdfDoc = null;
@@ -994,7 +1000,7 @@
       if (index >= pdfCandidates.length) {
         document.getElementById('loader').innerHTML = `
           <p style="color:#ef4444; font-weight:700;">Imposible cargar el archivo PDF.</p>
-          <p style="color:#94a3b8; font-size:0.85rem; margin-top:0.4rem;">Asegúrese de subir el archivo <strong>DantasISSUU_2.pdf</strong> o <strong>DantasISSUU.pdf</strong> al repositorio principal de GitHub.</p>
+          <p style="color:#94a3b8; font-size:0.85rem; margin-top:0.4rem;">Asegúrese de que el archivo <strong>R.Dantas.pdf</strong> o <strong>DantasISSUU.pdf</strong> esté en la raíz del repositorio.</p>
         `;
         return;
       }
