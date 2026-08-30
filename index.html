@@ -252,7 +252,7 @@
       flex-wrap: wrap;
     }
 
-    /* Hero Cover Card (PORTADA DEL LIBRO) */
+    /* Hero Cover Card */
     .book-cover-card {
       background: linear-gradient(145deg, #1e293b, #0f172a);
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -316,7 +316,7 @@
       margin: 0 auto;
     }
 
-    /* Author & Translator Side-by-Side Grid (Same Horizontal Line) */
+    /* Author & Translator Side-by-Side Grid */
     .authors-duo-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -384,18 +384,7 @@
       font-family: var(--font-title);
       font-size: 1.45rem;
       color: #fff;
-      margin-bottom: 0.3rem;
-    }
-
-    .person-info .degree {
-      color: #60a5fa;
-      font-weight: 700;
-      font-size: 0.88rem;
-      margin-bottom: 1rem;
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin-bottom: 0.8rem;
     }
 
     .person-bio {
@@ -759,7 +748,7 @@
       </div>
     </section>
 
-    <!-- Author and Translator Section (SIDE-BY-SIDE / SAME HORIZONTAL LINE) -->
+    <!-- Author and Translator Section -->
     <section class="section-block" id="autores">
       <div class="container">
         <div class="section-head">
@@ -773,14 +762,14 @@
             <span class="person-badge">Autor Original</span>
             <div class="person-photo-frame">
               <img 
-                src="Dantas.jpg" 
+                src="Dantas_6.jpg" 
                 alt="Dr. Rubens Alves Dantas"
-                onerror="this.onerror=null; this.src='Dantas.jpg';">
+                onerror="this.onerror=null; this.src='Dantas_3.jpg'; this.onerror=function(){this.src='Dantas_2.jpg';}">
             </div>
             <div class="person-info">
-              <h3>Prof.Dr. RUBENS ALVES DANTAS</h3>
+              <h3>DR. RUBENS ALVES DANTAS</h3>
               <p class="person-bio">
-                Ingeniero Civil, Máster en Ingeniería de Producción y Doctorado en Economía. Catedrático en Universidad Federal de Pernambuco, donde imparte: Valoraciones Masivas y Planes de Valor, Valoración Económica de Empresas e Ingeniería de Valoración. Director Dantas Engenharia. Ex-presidente de SOBREA e IBAPE-PE.
+                Ingeniero Civil, Máster en Ingeniería de Producción y Doctor en Ciencias por la Universidad Federal de Pernambuco (UFPE - Brasil). Reconocido profesor universitario de Ingeniería de Tasaciones desde 1981 con destacada trayectoria en el Banco Real, Caixa Econômica Federal y el BNH. Galardonado con el prestigioso <em>Premio Charles B. Akerson</em> otorgado por la UPAV en el año 2000 por sus invaluables aportes a la metodología científica.
               </p>
             </div>
           </div>
@@ -791,13 +780,13 @@
             <div class="person-photo-frame">
               <img 
                 src="Informal 3.png" 
-                alt="Prof.M.Sc.Miguel Camacaro Pérez"
-                onerror="this.onerror=null; this.src='Informal 3.png';">
+                alt="Ing. Miguel Camacaro Pérez"
+                onerror="this.onerror=null; this.src='Informal 3_2.png';">
             </div>
             <div class="person-info">
               <h3>ING. MIGUEL CAMACARO PÉREZ</h3>
               <p class="person-bio">
-                Ingeniero Civil por la Universidad de Los Andes (Venezuela), especialización en Valuación Inmobiliaria, Máster en Ciencias en Gerencia de la Construcción, Profesor universitario. Expresidente SOITAVE Lara. Referencia internacional en la integración de Ciencia de la Valuación, Ciencia de Datos e Inteligencia Artificial Generativa.
+                Ingeniero Civil - Tasador (Universidad de Los Andes) y M.Sc. en Gerencia de Construcción (UCLA – Univ. of Florida). Especialista en Valuación de Activos con más de 40 años de trayectoria profesional y docente universitario de estadística y econometría. Ex-Presidente de SOITAVE Capítulo Lara y director de <em>Miguel Camacaro Ediciones</em>, promoviendo la investigación rigurosa y la inferencia estadística en toda América Latina.
               </p>
             </div>
           </div>
@@ -814,110 +803,99 @@
         </div>
 
         <div class="fabulas-grid">
-          <!-- Cap 1: La Ingeniería de Tasaciones -->
-          <div class="fabula-card" onclick="goToPdfPage(14)">
+          <div class="fabula-card" onclick="goToPdfPage(17)">
             <div>
-              <div class="f-num">CAPÍTULO 1 • PÁG. 1 (PDF: 14)</div>
+              <div class="f-num">CAPÍTULO 1 • PÁG. 1 (PDF: 17)</div>
               <h4>La Ingeniería de Tasaciones</h4>
               <p>Conceptos fundamentales de valor, mercado inmobiliario, ley de oferta y demanda, competencia perfecta vs. imperfecta, y diagnóstico de estructura y conducta de mercado.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 2: Metodología Básica Aplicable -->
-          <div class="fabula-card" onclick="goToPdfPage(29)">
+          <div class="fabula-card" onclick="goToPdfPage(33)">
             <div>
-              <div class="f-num">CAPÍTULO 2 • PÁG. 17</div>
+              <div class="f-num">CAPÍTULO 2 • PÁG. 17 (PDF: 33)</div>
               <h4>Metodología Básica Aplicable</h4>
               <p>Método comparativo de mercado, costo de reproducción y depreciación física, método de la renta, método involutivo dinámico, método residual y niveles de rigor normativos.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 3: Metodología Científica -->
-          <div class="fabula-card" onclick="goToPdfPage(61)">
+          <div class="fabula-card" onclick="goToPdfPage(65)">
             <div>
-              <div class="f-num">CAPÍTULO 3 • PÁG. 49</div>
+              <div class="f-num">CAPÍTULO 3 • PÁG. 49 (PDF: 65)</div>
               <h4>Metodología Científica</h4>
               <p>Preparación de la investigación de mercado, selección de variables influyentes, trabajo de campo, precisión muestral, análisis exploratorio y modelaje por computador.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 4: Inferencia Estadística Aplicada -->
-          <div class="fabula-card" onclick="goToPdfPage(84)">
+          <div class="fabula-card" onclick="goToPdfPage(89)">
             <div>
-              <div class="f-num">CAPÍTULO 4 • PÁG. 73</div>
+              <div class="f-num">CAPÍTULO 4 • PÁG. 73 (PDF: 89)</div>
               <h4>Inferencia Estadística Aplicada</h4>
               <p>Distribuciones de probabilidad (Normal, t-Student, Snedecor, Lognormal), estimadores de tendencia central y dispersión, e intervalos de confianza para avalúos.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 5: Regresión Lineal Simple -->
-          <div class="fabula-card" onclick="goToPdfPage(111)">
+          <div class="fabula-card" onclick="goToPdfPage(117)">
             <div>
-              <div class="f-num">CAPÍTULO 5 • PÁG. 101</div>
+              <div class="f-num">CAPÍTULO 5 • PÁG. 101 (PDF: 117)</div>
               <h4>Regresión Lineal Simple</h4>
               <p>Linealización de ecuaciones, estimación de parámetros por mínimos cuadrados, comprobación de supuestos básicos, detección de outliers y pruebas de significancia.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 6: Regresión Lineal Múltiple -->
-          <div class="fabula-card" onclick="goToPdfPage(141)">
+          <div class="fabula-card" onclick="goToPdfPage(147)">
             <div>
-              <div class="f-num">CAPÍTULO 6 • PÁG. 131</div>
+              <div class="f-num">CAPÍTULO 6 • PÁG. 131 (PDF: 147)</div>
               <h4>Regresión Lineal Múltiple</h4>
               <p>Modelo lineal general, transformaciones de potencia (Box-Cox, Tukey), significancia global e individual, y aplicación práctica con datos reales (Caso Brasilia).</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 7: Modelos Especiales -->
-          <div class="fabula-card" onclick="goToPdfPage(171)">
+          <div class="fabula-card" onclick="goToPdfPage(177)">
             <div>
-              <div class="f-num">CAPÍTULO 7 • PÁG. 161</div>
+              <div class="f-num">CAPÍTULO 7 • PÁG. 161 (PDF: 177)</div>
               <h4>Modelos Especiales</h4>
               <p>Inclusión de variables dicotómicas y cualitativas (Variables Dummy), análisis de residuos y casos prácticos en locales comerciales y parcelas urbanas.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 8: Modelos Lineales Generalizados -->
-          <div class="fabula-card" onclick="goToPdfPage(189)">
+          <div class="fabula-card" onclick="goToPdfPage(195)">
             <div>
-              <div class="f-num">CAPÍTULO 8 • PÁG. 179</div>
+              <div class="f-num">CAPÍTULO 8 • PÁG. 179 (PDF: 195)</div>
               <h4>Modelos Lineales Generalizados (GLIM)</h4>
               <p>Componentes aleatorio y sistemático, función de enlace, análisis de deviance y aplicación práctica computacional para estructuras de datos complejas.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 9: Terrenos Urbanizables -->
-          <div class="fabula-card" onclick="goToPdfPage(217)">
+          <div class="fabula-card" onclick="goToPdfPage(223)">
             <div>
-              <div class="f-num">CAPÍTULO 9 • PÁG. 207</div>
+              <div class="f-num">CAPÍTULO 9 • PÁG. 207 (PDF: 223)</div>
               <h4>Tasación de Terrenos Urbanizables</h4>
               <p>Desarrollo matemático del método involutivo bajo óptica de análisis de inversiones, considerando ritmos de ventas uniformes y aleatorios con simulación.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Cap 10: Presentación del Informe -->
-          <div class="fabula-card" onclick="goToPdfPage(228)">
+          <div class="fabula-card" onclick="goToPdfPage(247)">
             <div>
-              <div class="f-num">CAPÍTULO 10 • PÁG. 231</div>
+              <div class="f-num">CAPÍTULO 10 • PÁG. 231 (PDF: 247)</div>
               <h4>Presentación del Informe Técnico</h4>
               <p>Estructuración formal del dictamen pericial de acuerdo con la norma NB-502/89, caracterización física, diagnóstico de mercado y fundamentación del valor.</p>
             </div>
             <div class="f-btn">📖 Leer capítulo ➔</div>
           </div>
 
-          <!-- Apéndices -->
-          <div class="fabula-card" onclick="goToPdfPage(234)">
+          <div class="fabula-card" onclick="goToPdfPage(253)">
             <div>
-              <div class="f-num">APÉNDICES • PÁG. 237</div>
+              <div class="f-num">APÉNDICES • PÁG. 237 (PDF: 253)</div>
               <h4>Tablas Técnicas & Código Fuente</h4>
               <p>Tablas estadísticas completas, Tablas de Depreciación Ross-Heidecke y programa computacional en lenguaje BASIC para la tasación de loteamientos urbanizables.</p>
             </div>
@@ -984,8 +962,15 @@
     // PDF.js Configuration
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-    // Lista exhaustiva de nombres de archivo PDF compatibles
-    const pdfCandidates = ['R.Dantas.pdf'];
+    // Lista de nombres de archivo PDF a probar automáticamente
+    const pdfCandidates = [
+      'R.Dantas.pdf',
+      'R.Dantas_2.pdf',
+      'DantasISSUU.pdf',
+      'DantasISSUU_2.pdf',
+      'DantasISSUU_3.pdf',
+      'Dantas.pdf'
+    ];
     let currentCandidateIndex = 0;
 
     let pdfDoc = null;
@@ -997,27 +982,27 @@
     function loadPdfDocument(index) {
       if (index >= pdfCandidates.length) {
         document.getElementById('loader').innerHTML = `
-          <p style="color:#ef4444; font-weight:700;">Imposible cargar el archivo PDF.</p>
-          <p style="color:#94a3b8; font-size:0.85rem; margin-top:0.4rem;">Asegúrese de que el archivo <strong>R.Dantas.pdf</strong> o <strong>DantasISSUU.pdf</strong> esté en la raíz del repositorio.</p>
+          <p style="color:#ef4444; font-weight:700; font-size:1.1rem;">No se pudo encontrar el archivo PDF en el repositorio.</p>
+          <p style="color:#94a3b8; font-size:0.85rem; margin-top:0.5rem;">Verifique que el archivo esté subido en la raíz de GitHub con el nombre exacto <strong>R.Dantas.pdf</strong> o <strong>DantasISSUU.pdf</strong>.</p>
         `;
         return;
       }
       
       const targetUrl = pdfCandidates[index];
-      pdfjsLib.getDocument(targetUrl).promise.then(pdf => {
+      pdfjsLib.getDocument({ url: targetUrl }).promise.then(pdf => {
         pdfDoc = pdf;
         document.getElementById('loader').style.opacity = '0';
         setTimeout(() => document.getElementById('loader').style.display = 'none', 300);
         renderSpread(currentLeftPage);
       }).catch(err => {
-        console.warn(`No se encontró ${targetUrl}, probando siguiente candidato...`);
+        console.warn(`Archivo ${targetUrl} no encontrado, intentando con el siguiente...`);
         loadPdfDocument(index + 1);
       });
     }
 
     loadPdfDocument(0);
 
-    // Render Individual Page with HD Canvas Support
+    // Render Individual Page
     function renderPage(pageNum, canvasId) {
       return new Promise((resolve) => {
         const canvas = document.getElementById(canvasId);
@@ -1052,7 +1037,7 @@
       });
     }
 
-    // Render Spread (Two pages side-by-side or single page)
+    // Render Spread
     function renderSpread(leftPage) {
       if (!pdfDoc || isRendering) return;
       isRendering = true;
