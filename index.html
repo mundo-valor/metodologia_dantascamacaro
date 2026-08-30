@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingeniería de Tasaciones | Rubens Alves Dantas & Miguel Camacaro Pérez</title>
+  <meta name="description" content="Landing page oficial y lectura online del libro 'Ingeniería de Tasaciones: Una introducción a la metodología científica' del Dr. Rubens Alves Dantas, traducido y editado por el Ing. Miguel Camacaro Pérez. Miguel Camacaro Ediciones.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- PDF.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #070c18;
+      --bg-card: #0f172a;
+      --border-card: rgba(255, 255, 255, 0.12);
+      --primary-green: #15803d;
+      --accent-green: #22c55e;
+      --royal-gold: #d97706;
+      --accent-gold: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-title: 'Cinzel', serif;
+      --font-reading: 'Literata', Georgia, serif;
+      --font-ui: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      background: rgba(7, 12, 24, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-card);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 0.75rem 0;
+    }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo-container {
+      background: #ffffff;
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 2px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .brand-logo img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text .name {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      color: var(--accent-gold);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .brand-text .sub {
+      font-size: 0.75rem;
+      color: #e2e8f0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #b45309, #d97706);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
+      background: linear-gradient(135deg, #d97706, #f59e0b);
+    }
+
+    .btn-green {
+      background: linear-gradient(135deg, #15803d, #16a34a);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+    }
+
+    .btn-green:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6);
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+    }
+
+    .btn-donate {
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-donate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid var(--border-card);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 3.5rem;
+      background: radial-gradient(circle at 50% 10%, #064e3b 0%, #070c18 80%);
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .badge-editorial {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: #ffffff;
+    }
+
+    .hero-title span {
+      color: var(--accent-gold);
+    }
+
+    .hero-lead {
+      font-family: var(--font-reading);
+      font-size: 1.12rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Hero Cover Card */
+    .book-cover-card {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(34, 197, 94, 0.2);
+    }
+
+    .book-cover-card img.cover-art {
+      width: 100%;
+      max-width: 270px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      margin-bottom: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .book-cover-card img.cover-art:hover {
+      transform: scale(1.02);
+    }
+
+    .metadata-strip {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    .metadata-strip strong {
+      color: #e2e8f0;
+    }
+
+    /* Content Sections */
+    .section-block {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-head p {
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    /* Author & Translator Side-by-Side Grid */
+    .authors-duo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .person-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .person-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-gold);
+    }
+
+    .person-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+    }
+
+    .person-photo-frame {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-gold);
+      padding: 4px;
+      margin: 0 auto 1.4rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1e293b;
+    }
+
+    .person-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .person-info h3 {
+      font-family: var(--font-title);
+      font-size: 1.45rem;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .person-info .degree {
+      color: #60a5fa;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .person-bio {
+      font-family: var(--font-reading);
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+      text-align: justify;
+      flex-grow: 1;
+    }
+
+    /* Presentation & Sponsorship Reviews Grid */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .review-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-text {
+      font-family: var(--font-reading);
+      font-size: 1.02rem;
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .review-author .name {
+      font-weight: 700;
+      color: var(--accent-gold);
+      font-size: 0.95rem;
+    }
+
+    .review-author .role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Chapters / Grid */
+    .fabulas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .fabula-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .fabula-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.2);
+    }
+
+    .fabula-card .f-num {
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .fabula-card h4 {
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .fabula-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
+
+    .fabula-card .f-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #15803d, #16a34a);
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      box-shadow: 0 2px 8px rgba(22, 163, 74, 0.3);
+      transition: all 0.2s ease;
+      text-align: center;
+      width: 100%;
+    }
+
+    .fabula-card:hover .f-btn {
+      background: linear-gradient(135deg, #d97706, #f59e0b);
+      color: #000000;
+      border-color: var(--accent-gold);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+    }
+
+    /* Online Reader Viewport */
+    .reader-section {
+      padding: 3rem 0 5rem;
+      background: #050811;
+    }
+
+    .reader-frame {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 90vh;
+      position: relative;
+    }
+
+    .reader-toolbar {
+      background: #070c18;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .reader-controls-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .zoom-label {
+      font-weight: 700;
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .reader-stage {
+      flex: 1;
+      background: #0b0f19;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      padding: 1.5rem;
+    }
+
+    .book-spread {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.85);
+      background: #ffffff;
+      border-radius: 4px;
+      position: relative;
+      margin: auto;
+    }
+
+    .book-spread.double-mode::after {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 14px;
+      transform: translateX(-50%);
+      background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.45) 45%, rgba(255,255,255,0.08) 50%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.2) 100%);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .page-canvas {
+      display: block;
+      width: auto;
+      height: auto;
+    }
+
+    .reader-footer {
+      background: #070c18;
+      padding: 0.75rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reader-loader {
+      position: absolute;
+      inset: 0;
+      background: #0f172a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+      transition: opacity 0.3s ease;
+    }
+
+    .spinner {
+      width: 45px;
+      height: 45px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: var(--accent-gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    footer {
+      border-top: 1px solid var(--border-card);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background: var(--bg-dark);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .authors-duo-grid, .reviews-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .book-spread::after, #canvas-r { display: none !important; }
+      .hero-btns { justify-content: center; }
+      .nav-links { display: none; }
+      .reader-frame { height: 80vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="brand-logo">
+        <div class="logo-container">
+          <img 
+            src="LogoMCE.png" 
+            alt="Miguel Camacaro Ediciones" 
+            onerror="this.onerror=null; this.src='LogoMCE_6.png';">
+        </div>
+        <div class="brand-text">
+          <span class="name">MIGUEL CAMACARO</span>
+          <span class="sub">EDICIONES • LIBROS PREMIUM</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#obra">La Obra</a>
+        <a href="#autores">Autor & Traductor</a>
+        <a href="#capitulos">Estructura</a>
+        <a href="#lector" class="btn btn-gold">📖 Leer Online</a>
+        <a href="https://paypal.me/spilimcurso" target="_blank" rel="noopener noreferrer" class="btn btn-donate">☕ Donar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge-editorial">Premio Charles B. Akerson – UPAV 2000</span>
+          <h1 class="hero-title">Ingeniería de <span>Tasaciones</span></h1>
+          <p class="hero-lead">
+            Una introducción a la metodología científica. Tratado fundamental que transformó la valuación inmobiliaria iberoamericana, consolidando la inferencia estadística, los modelos de regresión y el rigor técnico-científico.
+          </p>
+          <div class="hero-btns">
+            <a href="#lector" class="btn btn-gold">Iniciar Lectura Online</a>
+            <a href="#autores" class="btn btn-green">Conocer al Autor & Traductor</a>
+            <a href="#obra" class="btn btn-outline">Ver Presentación</a>
+          </div>
+        </div>
+
+        <div class="book-cover-card">
+          <img src="Dantas.jpg" alt="Portada de Ingeniería de Tasaciones - Rubens Alves Dantas" class="cover-art" onerror="this.onerror=null; this.src='Dantas_2.jpg';">
+          <div class="metadata-strip">
+            <div><strong>Autor:</strong> Dr. Rubens Alves Dantas</div>
+            <div><strong>Traducción y Edición:</strong> Ing. Miguel Camacaro Pérez</div>
+            <div><strong>ISBN:</strong> 980-303-644-0</div>
+            <div><strong>Depósito Legal:</strong> lf0512002620956</div>
+            <div><strong>Editorial:</strong> Miguel Camacaro Ediciones</div>
+            <div><strong>Edición:</strong> 2ª Edición en Castellano</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation & Review Section -->
+    <section class="section-block" id="obra">
+      <div class="container">
+        <div class="section-head">
+          <h2>Presentación y Reconocimiento Institucional</h2>
+          <p>Un texto que marca un hito en la divulgación de las técnicas estadísticas e inferenciales aplicadas a la tasación de inmuebles.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-box">
+            <p class="review-text">
+              «Para la Sociedad de Ingeniería de Tasación de Venezuela - SOITAVE es motivo de especial orgullo patrocinar este libro... La publicación de textos como este, traducido al castellano por un apreciado miembro de nuestra Sociedad y presidente del Capítulo Lara, el Ing. Miguel Camacaro Pérez, cumple con uno de los objetivos de SOITAVE: la divulgación de las técnicas estadísticas aplicadas a la tasación».
+            </p>
+            <div class="review-author">
+              <div>
+                <div class="name">Ing. Bernardo Pulido Azpúrua</div>
+                <div class="role">Presidente de SOITAVE (Sociedad de Ingeniería de Tasación de Venezuela)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-box">
+            <p class="review-text">
+              «La Ingeniería de Tasaciones tuvo un avance significativo principalmente por la introducción de la Metodología Científica como soporte a los métodos técnicos... Este libro pretende dar una visión general sobre los métodos utilizados y las nociones básicas para la adecuada utilización del Método Comparativo a partir de la Investigación Científica».
+            </p>
+            <div class="review-author">
+              <div>
+                <div class="name">Dr. Rubens Alves Dantas</div>
+                <div class="role">Profesor Titular UFPE • Autor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Author and Translator Section (SIDE-BY-SIDE / SAME LINE) -->
+    <section class="section-block" id="autores">
+      <div class="container">
+        <div class="section-head">
+          <h2>Autor & Traductor-Editor</h2>
+          <p>Dos destacados referentes de la Ingeniería de Tasaciones en Iberoamérica unidos para llevar esta obra trascendental al idioma castellano.</p>
+        </div>
+
+        <div class="authors-duo-grid">
+          <!-- Autor: Rubens Alves Dantas -->
+          <div class="person-card">
+            <span class="person-badge">Autor Original</span>
+            <div class="person-photo-frame">
+              <img 
+                src="Dantas_2.jpg" 
+                alt="Dr. Rubens Alves Dantas"
+                onerror="this.onerror=null; this.src='Dantas.jpg';">
+            </div>
+            <div class="person-info">
+              <h3>DR. RUBENS ALVES DANTAS</h3>
+              <div class="degree">Ingeniero Civil • D.Sc. / Ph.D. • Universidad Federal de Pernambuco (UFPE - Brasil)</div>
+              <p class="person-bio">
+                Reconocido investigador y profesor universitario de Ingeniería de Tasaciones en las Universidades Estatal y Federal de Pernambuco desde 1981. Con una distinguida trayectoria profesional en el Banco Real, la Caixa Econômica Federal y el BNH. Maestro en Ingeniería de Producción con énfasis en valuación de inmuebles guiado por el célebre Gauss Cordeiro. Galardonado con el prestigioso <em>Premio Charles B. Akerson</em> otorgado por la UPAV en el año 2000 por sus invaluables aportes a la metodología científica.
+              </p>
+            </div>
+          </div>
+
+          <!-- Traductor y Editor: Miguel Camacaro Pérez -->
+          <div class="person-card">
+            <span class="person-badge">Traductor & Editor</span>
+            <div class="person-photo-frame">
+              <img 
+                src="Informal 3.png" 
+                alt="Ing. Miguel Camacaro Pérez"
+                onerror="this.onerror=null; this.src='Informal 3_4.png';">
+            </div>
+            <div class="person-info">
+              <h3>ING. MIGUEL CAMACARO PÉREZ</h3>
+              <div class="degree">Ingeniero Civil - Tasador (ULA) • M.Sc. en Gerencia de Construcción (UCLA – Univ. of Florida)</div>
+              <p class="person-bio">
+                Especialista en Valuación de Activos con más de 40 años de trayectoria profesional y docente universitario de estadística y econometría. Ex-Presidente de SOITAVE Capítulo Lara. A través de <em>Miguel Camacaro Ediciones</em>, ha sido autor, editor y traductor de obras fundamentales para la profesión, impulsando la adopción de modelos econométricos, inferencia estadística, análisis de regresión múltiple y la difusión técnica en todo el continente.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Structure of the Work / Table of Contents -->
+    <section class="section-block" id="capitulos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Estructura de la Obra</h2>
+          <p>Explora los 10 capítulos del tratado haciendo clic para abrir de inmediato el lector interactivo en las páginas correspondientes.</p>
+        </div>
+
+        <div class="fabulas-grid">
+          <!-- Cap 1: La Ingeniería de Tasaciones (Pág 17 del PDF aprox) -->
+          <div class="fabula-card" onclick="goToPdfPage(17)">
+            <div>
+              <div class="f-num">CAPÍTULO 1 • PÁG. 1 (PDF: 17)</div>
+              <h4>La Ingeniería de Tasaciones</h4>
+              <p>Conceptos fundamentales de valor, mercado inmobiliario, ley de oferta y demanda, competencia perfecta vs. imperfecta, y diagnóstico de estructura y conducta de mercado.</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Cap 2: Metodología Básica Aplicable (Pág 11 del PDF en numeración de índice) -->
+          <div class="fabula-card" onclick="goToPdfPage(11)">
+            <div>
+              <div class="f-num">CAPÍTULO 2 • PÁG. 17</div>
+              <h4>Metodología Básica Aplicable</h4>
+              <p>Método comparativo de mercado, costo de reproducción y depreciación física, método de la renta, método involutivo dinámico, método residual y niveles de rigor normativos.</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Cap 3: Metodología Científica (Pág 12 del PDF) -->
+          <div class="fabula-card" onclick="goToPdfPage(12)">
+            <div>
+              <div class="f-num">CAPÍTULO 3 • PÁG. 49</div>
+              <h4>Metodología Científica</h4>
+              <p>Preparación de la investigación de mercado, selección de variables influyentes, trabajo de campo, precisión muestral, análisis exploratorio y modelaje por computador.</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Cap 4: Inferencia Estadística Aplicada -->
+          <div class="fabula-card" onclick="goToPdfPage(12)">
+            <div>
+              <div class="f-num">CAPÍTULO 4 • PÁG. 73</div>
+              <h4>Inferencia Estadística Aplicada</h4>
+              <p>Distribuciones de probabilidad (Normal, t-Student, Snedecor, Lognormal), estimadores de tendencia central y dispersión, e intervalos de confianza para avalúos.</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Cap 5: Regresión Lineal Simple -->
+          <div class="fabula-card" onclick="goToPdfPage(12)">
+            <div>
+              <div class="f-num">CAPÍTULO 5 • PÁG. 101</div>
+              <h4>Regresión Lineal Simple</h4>
+              <p>Linealización de ecuaciones, estimación de parámetros por mínimos cuadrados, comprobación de supuestos básicos, detección de outliers y pruebas de significancia.</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Cap 6: Regresión Lineal Múltiple -->
+          <div class="fabula-card" onclick="goToPdfPage(13)">
+            <div>
+              <div class="f-num">CAPÍTULO 6 • PÁG. 131</div>
+              <h4>Regresión Lineal Múltiple</h4>
+              <p>Modelo lineal general, transformaciones de potencia (Box-Cox, Tukey), significancia global e individual, y aplicación práctica con datos reales (Caso Brasilia).</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Cap 7: Modelos Especiales -->
+          <div class="fabula-card" onclick="goToPdfPage(13)">
+            <div>
+              <div class="f-num">CAPÍTULO 7 • PÁG. 161</div>
+              <h4>Modelos Especiales</h4>
+              <p>Inclusión de variables dicotómicas y cualitativas (Variables Dummy), análisis de residuos y casos prácticos en locales comerciales y parcelas urbanas.</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Cap 8: Modelos Lineales Generalizados -->
+          <div class="fabula-card" onclick="goToPdfPage(14)">
+            <div>
+              <div class="f-num">CAPÍTULO 8 • PÁG. 179</div>
+              <h4>Modelos Lineales Generalizados (GLIM)</h4>
+              <p>Componentes aleatorio y sistemático, función de enlace, análisis de deviance y aplicación práctica computacional para estructuras de datos complejas.</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Cap 9: Terrenos Urbanizables -->
+          <div class="fabula-card" onclick="goToPdfPage(14)">
+            <div>
+              <div class="f-num">CAPÍTULO 9 • PÁG. 207</div>
+              <h4>Tasación de Terrenos Urbanizables</h4>
+              <p>Desarrollo matemático del método involutivo bajo óptica de análisis de inversiones, considerando ritmos de ventas uniformes y aleatorios con simulación.</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Cap 10: Presentación del Informe -->
+          <div class="fabula-card" onclick="goToPdfPage(15)">
+            <div>
+              <div class="f-num">CAPÍTULO 10 • PÁG. 231</div>
+              <h4>Presentación del Informe Técnico</h4>
+              <p>Estructuración formal del dictamen pericial de acuerdo con la norma NB-502/89, caracterización física, diagnóstico de mercado y fundamentación del valor.</p>
+            </div>
+            <div class="f-btn">📖 Leer capítulo ➔</div>
+          </div>
+
+          <!-- Apéndices -->
+          <div class="fabula-card" onclick="goToPdfPage(15)">
+            <div>
+              <div class="f-num">APÉNDICES • PÁG. 237</div>
+              <h4>Tablas Técnicas & Código Fuente</h4>
+              <p>Tablas estadísticas completas, Tablas de Depreciación Ross-Heidecke y programa computacional en lenguaje BASIC para la tasación de loteamientos urbanizables.</p>
+            </div>
+            <div class="f-btn">📖 Leer anexos ➔</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expanded Online Digital Reader -->
+    <section class="reader-section" id="lector">
+      <div class="container">
+        <div class="reader-frame" id="reader-box">
+          <!-- Loader -->
+          <div class="reader-loader" id="loader">
+            <div class="spinner"></div>
+            <p style="color:var(--accent-gold); font-family:var(--font-title); font-size:1.1rem;">Cargando tratado digital...</p>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="reader-toolbar">
+            <div style="font-weight:700; color:#fff; font-size:0.95rem;">
+              📖 <span id="doc-title">Ingeniería de Tasaciones — Rubens Alves Dantas</span>
+            </div>
+            <div class="reader-controls-group">
+              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="toggleViewMode()" id="view-mode-btn">📄 Página Simple</button>
+              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="zoom(-0.15)">🔍 -</button>
+              <span class="zoom-label" id="zoom-text">140%</span>
+              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="zoom(0.15)">🔍 +</button>
+              <button class="btn btn-outline" style="padding:0.4rem 0.8rem;" onclick="toggleFullscreen()">⛶ Pantalla Completa</button>
+            </div>
+          </div>
+
+          <!-- Stage with Double Page Support -->
+          <div class="reader-stage" id="reader-viewport">
+            <div class="book-spread double-mode" id="spread-box">
+              <canvas id="canvas-l" class="page-canvas"></canvas>
+              <canvas id="canvas-r" class="page-canvas"></canvas>
+            </div>
+          </div>
+
+          <!-- Footer Toolbar -->
+          <div class="reader-footer">
+            <button class="btn btn-outline" id="prev-btn" onclick="prevSpread()">◀ Anterior</button>
+            <div style="color:var(--accent-gold); font-weight:700; font-size:0.95rem;" id="page-num-indicator">
+              Cargando páginas...
+            </div>
+            <button class="btn btn-gold" id="next-btn" onclick="nextSpread()">Siguiente ▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>Ingeniería de Tasaciones: Una introducción a la metodología científica</strong> — © Rubens Alves Dantas & Miguel Camacaro Pérez</p>
+      <p style="margin-top:0.4rem; opacity:0.7;">Publicado por <strong>Miguel Camacaro Ediciones</strong> • Con el patrocinio institucional de <strong>SOITAVE</strong>.</p>
+    </div>
+  </footer>
+
+  <script>
+    // PDF.js Configuration
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    // Se admiten los nombres posibles del archivo PDF cargado en GitHub
+    const pdfCandidates = ['DantasISSUU_2.pdf', 'DantasISSUU.pdf', 'Dantas.pdf'];
+    let currentCandidateIndex = 0;
+
+    let pdfDoc = null;
+    let currentLeftPage = 1;
+    let currentScale = 1.35;
+    let isSinglePageMode = false;
+    let isRendering = false;
+
+    function loadPdfDocument(index) {
+      if (index >= pdfCandidates.length) {
+        document.getElementById('loader').innerHTML = `
+          <p style="color:#ef4444; font-weight:700;">Imposible cargar el archivo PDF.</p>
+          <p style="color:#94a3b8; font-size:0.85rem; margin-top:0.4rem;">Asegúrese de subir el archivo <strong>DantasISSUU_2.pdf</strong> o <strong>DantasISSUU.pdf</strong> al repositorio principal de GitHub.</p>
+        `;
+        return;
+      }
+      
+      const targetUrl = pdfCandidates[index];
+      pdfjsLib.getDocument(targetUrl).promise.then(pdf => {
+        pdfDoc = pdf;
+        document.getElementById('loader').style.opacity = '0';
+        setTimeout(() => document.getElementById('loader').style.display = 'none', 300);
+        renderSpread(currentLeftPage);
+      }).catch(err => {
+        console.warn(`No se encontró ${targetUrl}, probando siguiente candidato...`);
+        loadPdfDocument(index + 1);
+      });
+    }
+
+    loadPdfDocument(0);
+
+    // Render Individual Page with HD Canvas Support
+    function renderPage(pageNum, canvasId) {
+      return new Promise((resolve) => {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext('2d');
+
+        if (!pdfDoc || pageNum > pdfDoc.numPages || pageNum < 1) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          canvas.style.display = 'none';
+          resolve();
+          return;
+        }
+
+        canvas.style.display = 'block';
+        pdfDoc.getPage(pageNum).then(page => {
+          const viewport = page.getViewport({ scale: currentScale });
+          
+          const outputScale = window.devicePixelRatio || 1;
+          canvas.width = Math.floor(viewport.width * outputScale);
+          canvas.height = Math.floor(viewport.height * outputScale);
+          canvas.style.width = Math.floor(viewport.width) + "px";
+          canvas.style.height = Math.floor(viewport.height) + "px";
+
+          const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+
+          const renderContext = {
+            canvasContext: ctx,
+            transform: transform,
+            viewport: viewport
+          };
+          page.render(renderContext).promise.then(() => resolve());
+        });
+      });
+    }
+
+    // Render Spread (Two pages side-by-side or single page)
+    function renderSpread(leftPage) {
+      if (!pdfDoc || isRendering) return;
+      isRendering = true;
+      const isMobile = window.innerWidth <= 900 || isSinglePageMode;
+      const spreadBox = document.getElementById('spread-box');
+
+      if (isMobile) {
+        spreadBox.classList.remove('double-mode');
+      } else {
+        spreadBox.classList.add('double-mode');
+      }
+
+      const p1 = renderPage(leftPage, 'canvas-l');
+      const p2 = !isMobile ? renderPage(leftPage + 1, 'canvas-r') : Promise.resolve();
+
+      Promise.all([p1, p2]).then(() => {
+        isRendering = false;
+        const rightPage = isMobile ? leftPage : Math.min(leftPage + 1, pdfDoc.numPages);
+
+        document.getElementById('page-num-indicator').innerText = isMobile 
+          ? `Pág. PDF: ${leftPage} / ${pdfDoc.numPages}` 
+          : `Págs. PDF: ${leftPage} – ${rightPage} / ${pdfDoc.numPages}`;
+
+        document.getElementById('prev-btn').disabled = leftPage <= 1;
+        document.getElementById('next-btn').disabled = isMobile 
+          ? leftPage >= pdfDoc.numPages 
+          : leftPage + 1 >= pdfDoc.numPages;
+
+        document.getElementById('zoom-text').innerText = Math.round(currentScale * 100) + '%';
+      });
+    }
+
+    function nextSpread() {
+      if (!pdfDoc || isRendering) return;
+      const step = (window.innerWidth <= 900 || isSinglePageMode) ? 1 : 2;
+      if (currentLeftPage + step <= pdfDoc.numPages) {
+        currentLeftPage += step;
+        renderSpread(currentLeftPage);
+      }
+    }
+
+    function prevSpread() {
+      if (!pdfDoc || isRendering) return;
+      const step = (window.innerWidth <= 900 || isSinglePageMode) ? 1 : 2;
+      if (currentLeftPage - step >= 1) {
+        currentLeftPage -= step;
+        renderSpread(currentLeftPage);
+      } else if (currentLeftPage > 1) {
+        currentLeftPage = 1;
+        renderSpread(currentLeftPage);
+      }
+    }
+
+    function goToPdfPage(targetPdfPage) {
+      if (!pdfDoc) return;
+      const isMobile = window.innerWidth <= 900 || isSinglePageMode;
+      currentLeftPage = isMobile ? targetPdfPage : (targetPdfPage % 2 === 0 ? targetPdfPage : targetPdfPage - 1);
+      if (currentLeftPage < 1) currentLeftPage = 1;
+      renderSpread(currentLeftPage);
+      document.getElementById('lector').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function zoom(delta) {
+      currentScale = Math.min(Math.max(currentScale + delta, 0.8), 3.0);
+      renderSpread(currentLeftPage);
+    }
+
+    function toggleViewMode() {
+      isSinglePageMode = !isSinglePageMode;
+      document.getElementById('view-mode-btn').innerText = isSinglePageMode ? '📖 Página Doble' : '📄 Página Simple';
+      renderSpread(currentLeftPage);
+    }
+
+    function toggleFullscreen() {
+      const elem = document.getElementById('reader-box');
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => alert(`Error en pantalla completa: ${err.message}`));
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSpread();
+      if (e.key === 'ArrowLeft') prevSpread();
+      if (e.key === '+' || e.key === '=') zoom(0.15);
+      if (e.key === '-' || e.key === '_') zoom(-0.15);
+    });
+
+    window.addEventListener('resize', () => {
+      renderSpread(currentLeftPage);
+    });
+  </script>
+</body>
+</html>
